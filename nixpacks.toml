@@ -1,0 +1,5 @@
+[phases.setup]
+nixPkgs = ["osrm-backend", "curl", "unzip"]
+
+[start]
+cmd = "bash start.sh"
