@@ -1,14 +1,11 @@
 #!/bin/bash
 
-mkdir -p data
-cd data
-
 echo "Downloading OSRM dataset..."
-curl -L "https://drive.google.com/file/d/1dQw2mz6W3SWkkNd9h1Dzih0tOelEyKZm/view?usp=drive_link" -o osrm.zip
+curl -L "https://drive.google.com/uc?export=download&id=1dQw2mz6W3SWkkNd9h1Dzih0tOelEyKZm" -o osrm.zip
 
-echo "Unzipping..."
-unzip osrm.zip
+echo "Unzipping OSRM dataset..."
+unzip osrm.zip -d data
 rm osrm.zip
 
 echo "Starting OSRM..."
-osrm-routed --algorithm mld western-zone-251204.osrm -p 5000
+osrm-routed --algorithm mld data/western-zone-251204.osrm -p 5000
